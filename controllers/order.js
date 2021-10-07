@@ -84,11 +84,10 @@ const createOrder = async (req, res) => {
 
 const updateOrder = async (req, res) => {
     
-    timeCheck();
-
     const orderId = req.params.id;
 
     try {
+        timeCheck();
         let order = await Order.findById(orderId);
 
         if(!order){
