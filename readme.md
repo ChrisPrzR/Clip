@@ -6,6 +6,8 @@ Technical test API
 
 This project is hosted on heroku, please give the server a second to wake up.
 
+API URL: https://clip-api-test.herokuapp.com
+
 
 ## Endpoints
 * Users

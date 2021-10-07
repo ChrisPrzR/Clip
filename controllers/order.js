@@ -8,7 +8,7 @@ const createOrder = async (req, res) => {
         const opening = new Date()
         const closing = new Date()
         opening.setHours(16,0,0,0)
-        closing.setHours(24,0,0,0)
+        closing.setHours(21,0,0,0)
     
         const currentTime = new Date()
         currentTime.getHours()
