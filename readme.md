@@ -40,7 +40,7 @@ API URL: https://clip-api-test.herokuapp.com
     "available": true
 }
 ```
-* Orders (It can be an array of objects)
+* Orders (It can be an array of objects) Only available from 4 pm to 9 pm
     * /api/order/:userId   --> POST --> Returns confirmation message and orderId in JSON
     * /api/order/:id   --> PUT --> Returns confirmation message and order object in JSON
         

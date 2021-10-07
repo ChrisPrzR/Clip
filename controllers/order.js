@@ -2,28 +2,25 @@ const Order = require('../models/Order');
 const User = require('../models/User');
 const Dish = require('../models/Dish');
 
+const timeCheck = () => {
+    const opening = new Date()
+    const closing = new Date()
+    opening.setHours(16,0,0,0)
+    closing.setHours(21,0,0,0)
+
+    const currentTime = new Date()
+    currentTime.getHours()
+
+    if(!(currentTime > opening)  || !(currentTime < closing)){
+        throw new Error('Hours of operation are 16:00 PM to 21:00 PM')
+    }
+}
 const createOrder = async (req, res) => {
     
-    const timeCheck = () => {
-        const opening = new Date()
-        const closing = new Date()
-        opening.setHours(16,0,0,0)
-        closing.setHours(21,0,0,0)
-    
-        const currentTime = new Date()
-        currentTime.getHours()
-    
-        if(!(currentTime > opening)  || !(currentTime < closing)){
-            return res.status(400).json({
-                ok: false,
-                msg: 'Hours of operation are 16:00 PM to 21:00 PM'
-            })
-        }
-    }
-
-    timeCheck();
-    
     try {
+        
+    
+        timeCheck();
 
         //Assuming every new order is not on the DB.
         let userId = req.params.userId
@@ -87,23 +84,6 @@ const createOrder = async (req, res) => {
 
 const updateOrder = async (req, res) => {
     
-    const timeCheck = () => {
-        const opening = new Date()
-        const closing = new Date()
-        opening.setHours(16,0,0,0)
-        closing.setHours(21,0,0,0)
-    
-        const currentTime = new Date()
-        currentTime.getHours()
-    
-        if(!(currentTime > opening)  || !(currentTime < closing)){
-            return res.status(400).json({
-                ok: false,
-                msg: 'Hours of operation are 16:00 PM to 21:00 PM'
-            })
-        }
-    }
-
     timeCheck();
 
     const orderId = req.params.id;
