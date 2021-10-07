@@ -63,8 +63,6 @@ const createOrder = async (req, res) => {
             totalAmount
         })
 
-        //request only needs the user in the params, and order details>item>dishname
-
         await order.save()
 
         res.status(201).json({
@@ -96,7 +94,6 @@ const updateOrder = async (req, res) => {
                 msg: 'Order not found'
             });
         };
-        //request needs the order id in the params, and order details>item>dishname
 
         const updatedOrder = await Order.findByIdAndUpdate(orderId, req.body, {new: true});
 
